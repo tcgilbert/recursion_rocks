@@ -1,5 +1,5 @@
 # You will have to figure out what parameters to include
-# 🚨 All functions must use recursion 🚨
+#  All functions must use recursion 
 
 # Write a function that accepts a complex dictionary and prints out all of it's keys and all of its values. 
 # The dictionary can have dictionaries nested inside of it
@@ -10,14 +10,19 @@
 # ...
 
 def pretty_print(dictionary, indent):
-    # Write code here
-    pass
+    # print(dictionary.keys())
+    result = indent * 2
+    for key in dictionary.keys():
+        if isinstance(dictionary[key], dict) != True:
+            result += key + ":" + str(dictionary[key])
+            return result
+        # print(type(dictionary[key]))
 
-o1 = {"a": 1, "b": 2}
+o1 = {"a": 1, "b": 2, "c": { "1": 2}}
 o2 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero"}, "d": 4}
 o3 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero", "friends": {"spiderman": {"name": "Peter Parker"}, "superman": {"name": "Clark Kent"}}}, "d": 4}
 
-# print(pretty_print(o1, "-"))
+print(pretty_print(o1, "-"))
 # print(pretty_print(o2, " "))
 # print(pretty_print(o3, ".."))
 # ..a: 1
